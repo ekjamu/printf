@@ -9,7 +9,7 @@
  *
  * Return: the pointer to dest
  */
-char *_strcpy(char *dest, char *src)
+char *_strcpy(const char *dest,const char *src)
 {
 	int counter = _strlen(src);
 	int i = 0;
@@ -29,7 +29,7 @@ char *_strcpy(char *dest, char *src)
  *
  * Return: the length of the string
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	char string = *s;
 	int counter = 0;
@@ -49,7 +49,7 @@ int _strlen(char *s)
  *
  * Return: pointer to new string or null
  */
-char *_strdup(char *str)
+char *_strdup(const char *str)
 {
 	int len;
 	char *cpy;
