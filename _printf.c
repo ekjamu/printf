@@ -58,6 +58,7 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(print);
+	_puts(formatCpy);
 	putchar('\n');
 	length = _strlen(formatCpy);
 	free(formatCpy);
