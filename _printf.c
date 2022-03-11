@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * _printf - will duplicate the printf function
@@ -15,6 +16,7 @@ int _printf(const char *format, ...)
 	va_list print;
 	unsigned int i = 0, count = 0;
 	char *formatCpy;
+	int length;
 	t_mod selector[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -26,7 +28,9 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 
-	formatCpy = _strdup(format)
+	length = _strlen(format);
+	formatCpy = malloc(length + 1);
+	_strcpy(formatCpy, format);
 	va_start(print, format);
 	while (formatCpy != NULL && (*(formatCpy + i)) != '\0')
 	{
@@ -35,9 +39,9 @@ int _printf(const char *format, ...)
 		{
 			if (*(selector[count].symbol) == *(formatCpy + i))
 			{
-				if (*(formatCpy - 1) == "%")
+				if (*(formatCpy + i - 1) == '%')
 				{
-					printf("found one\n");
+					printf("found %%%c\n", *(formatCpy + i));
 				}
 			}
 			count++;
@@ -46,4 +50,7 @@ int _printf(const char *format, ...)
 	}
 	va_end(print);
 	putchar('\n');
+	length = _strlen(formatCpy);
+	free(formatCpy);
+	return (length);
 }

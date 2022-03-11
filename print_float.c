@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdarg,h>
+#include <stdarg.h>
 #include "main.h"
 
 /**
@@ -7,6 +7,7 @@
   * @format: %f
   * Return: if float is NULL, return pointer
   */
-char *print_float(char *fomrat, va_list *var)
+char *print_float(char *format, va_list *var)
 {
+	return (format);
 }

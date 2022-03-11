@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdarg,h>
+#include <stdarg.h>
 #include "main.h"
 
 /**
@@ -7,6 +7,7 @@
   * @format: %i
   * Return: if integer is NULL, return pointer
   */
-char *print_int(char *fomrat, va_list *var)
+char *print_int(char *format, va_list *var)
 {
+	return (format);
 }

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdarg,h>
+#include <stdarg.h>
 #include "main.h"
 
 /**
@@ -7,6 +7,7 @@
   * @format: base16
   * Return: if argument is NULL, return pointer
   */
-char *print_sixteen(char *fomrat, va_list *var)
+char *print_sixteen(char *format, va_list *var)
 {
+	return (format);
 }
