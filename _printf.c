@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 		{
 			if (*(selector[count].symbol) == *(formatCpy + i))
 			{
-				k = i - 1
+				k = i - 1;
 				if (*(formatCpy + k) == '%')
 				{
 					printf("%%%c\n", *(formatCpy + i));
