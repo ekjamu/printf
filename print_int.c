@@ -9,5 +9,6 @@
   */
 char *print_int(char *format, va_list *var)
 {
+	/* test if git pull to merge work */
 	return (format);
 }
