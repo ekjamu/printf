@@ -9,8 +9,7 @@
  */
 int main(void)
 {
-    int len;
-
-    _printf("hello %s, my %c, is bob %%, hello %k");
-    return (0);
+    int len = 5;
+    _printf("%j\n");
+   return (0);
 }
