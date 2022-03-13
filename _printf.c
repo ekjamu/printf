@@ -26,10 +26,9 @@ char *print_mod(char *format, va_list *var)
 		{"x", print_sixteen},
 		{NULL, NULL}
 	};
-
 	while (selector[count].symbol != NULL)
 	{
-		if (*(selector[count].symbol) == *(format + 1))
+		if (*(selector[count].symbol) == *(format+ 1))
 		{
 			return (selector[count].type(format, var));
 		}
@@ -52,31 +51,34 @@ char *print_mod(char *format, va_list *var)
 int _printf(const char *format, ...)
 {
 /*	this will be our super awesome function!!*/
-	va_list print;
+	va_list print, search;
 	unsigned int i = 0;
 	char *formatCpy;
 	int buffSize;
 
-	/* the next three lines will allocate space
+	/* the next few lines will allocate space
 	   and copy the original string to a new
 	   location on the heap for us to manipulate */
-	buffSize = _strlen(format);
-	formatCpy = malloc(buffSize + 1000);
-	_strcpy(formatCpy, format);
 	va_start(print, format);
+	va_copy(search, print);
+	buffSize = buff_size_calc(format, &search);
+	va_end(search);
+	formatCpy = malloc(buffSize);
+	_strcpy(formatCpy, format);
+
 	/* These loops will find the modifier character and will
 	 send to the print_mod function to do the heavy lifting.*/
 	while (formatCpy != NULL && (*(formatCpy + i)) != '\0')
 	{
 		if (*(formatCpy + i) == '%')
 		{
-			formatCpy = print_mod(formatCpy, &print);
+			print_mod(formatCpy + i, &print);
 		}
 		i++;
 	}
 	va_end(print);
 	buffSize = _strlen(formatCpy);
-	write(1, &formatCpy, buffSize);
+	write(1, formatCpy, buffSize);
 	free(formatCpy);
 	return (buffSize);
 }
