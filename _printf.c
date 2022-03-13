@@ -70,7 +70,7 @@ int _printf(const char *format, ...)
 	{
 		if (*(formatCpy + i) == '%')
 		{
-			print_mod(formatCpy, &print);
+			formatCpy = print_mod(formatCpy, &print);
 		}
 		i++;
 	}
