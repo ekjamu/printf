@@ -9,7 +9,8 @@
  */
 int main(void)
 {
-    int len = 5;
-    _printf("%j\n");
+    int len = 5000;
+    _printf("Hi guys,\n");
+    _printf("hi guys %d\n", len);
    return (0);
 }
