@@ -3,11 +3,28 @@
 #include "main.h"
 
 /**
-  * print_str - function to print string %s
-  * @format: %s
+  * print_string - function to print string %s
+  * @format: copy of format string pointed to %s
+  * @var: va_list pointer
   * Return: if string is NULL, return pointer
   */
 char *print_string(char *format, va_list *var)
 {
+	char *formatEnd, *argStr;
+
+	argStr = va_arg(var, char *);
+
+	/* perhaps we should exit here instead as printf wouldn't compile */
+	if (argStr == NULL || *argStr == '\0')
+		return (format);
+
+	formatEnd = format;
+
+	_strcpy(format, argStr);
+	format = format + _strlen(argStr);
+
+	if (_strlen(formatEnd) > 2)
+		_strcpy(format, formatEnd + 2);
+
 	return (format);
 }
