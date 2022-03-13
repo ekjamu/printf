@@ -1,0 +1,29 @@
+% _printf function 1.0
+% Matthew Brinkmann, Karoline Silva, Cienna Nguyen.
+% 13 March 2022
+# NAME
+_printf
+# SYNOPSIS
+int _printf(const char *format, ...);
+# DESCRIPTION
+_printf \- Prints a string onto the screen, taking into account a number (0 - alot) of additional arguments
+# OPTIONS
+The following options need to be preceeded with a '%' sign to take effect.
+**c**   
+: print_char   
+**s**   
+: print_string   
+**%**    
+: print_percent    
+**d**    
+: print_int      
+**f**    
+: print_float    
+**o**     
+: print_eight     
+**x**       
+: print_sixteen     
+# SEE ALSO
+printf(1), puts(3)
+# BUGS
+currently will not convert any of the modifiers, will just print the string to the screen.
