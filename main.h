@@ -3,7 +3,7 @@
 #include <stdarg.h>
 
 /**
-* struct forms - holds my selector and pointer to function
+* struct modifier - holds my selector and pointer to function
 * @symbol: selector type, %s=string, %c=char, %f=float, %i=integer etc.
 * @type: pointer to function to print statement
 *
@@ -14,6 +14,19 @@ typedef struct modifier
 char *symbol;
 char *(*type)(char*, va_list *);
 } t_mod;
+
+/**
+* struct buffer_calc - data struct to help with buffer calc
+* @symbol: selector type, %s=string, %c=char, %f=float, %i=integer etc.
+* @type: pointer to function to calc specific data types
+*
+* Description:
+*/
+typedef struct buffer_calc
+{
+char *symbol;
+int (*type)(va_list *);
+} t_buff;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
@@ -44,6 +57,13 @@ char *print_percent(char *format, va_list *var);
 char *print_float(char *format, va_list *var);
 char *print_eight(char *format, va_list *var);
 char *print_sixteen(char *format, va_list *var);
+int buff_size_calc(const char *format, va_list *args);
+int buff_string(va_list *args);
+int buff_char(va_list *args);
+int buff_int(va_list *args);
+int buff_float(va_list *args);
+int buff_eight(va_list *args);
+int buff_sixteen(va_list *args);
 char *print_mod(char *format, va_llist *var);
 
 #endif /* MAIN_H */
