@@ -61,7 +61,7 @@ int _printf(const char *format, ...)
 	   and copy the original string to a new
 	   location on the heap for us to manipulate */
 	buffSize = _strlen(format);
-	formatCpy = malloc(buffSize + 1);
+	formatCpy = malloc(buffSize + 1000);
 	_strcpy(formatCpy, format);
 	va_start(print, format);
 	/* These loops will find the modifier character and will
