@@ -23,6 +23,10 @@ The following options need to be preceeded with a '%' sign to take effect.
 : print_eight     
 **x**       
 : print_sixteen     
+# RETURN VALUE
+If the function is successful it will return the length of the string it prints excluding the terminating null byte ('\0').
+If the function fails to find a matching % modifier function, it will exit with error 99.     
+We will change the exit 99 to a return -1 when we get closer to final version.
 # SEE ALSO
 printf(1), puts(3)
 # BUGS
