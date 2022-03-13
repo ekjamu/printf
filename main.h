@@ -64,4 +64,6 @@ int buff_int(va_list *args);
 int buff_float(va_list *args);
 int buff_eight(va_list *args);
 int buff_sixteen(va_list *args);
+char *print_mod(char *format, va_llist *var);
+
 #endif /* MAIN_H */
