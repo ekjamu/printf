@@ -6,6 +6,7 @@
 /**
   * print_sixteen - function to print of base 16
   * @format: base16
+  * @var: the list object to manipulate.
   * Return: if argument is NULL, return pointer
   */
 char *print_sixteen(char *format, va_list *var)
@@ -23,9 +24,7 @@ char *print_sixteen(char *format, va_list *var)
 	if (formatEnd == NULL)
 		return (format);
 	if (numberTest < 0)
-	{
 		number = number * -1;
-	}
 	while (number > 15)
 	{
 		*(printNum + i) = *(convert + (number % 16));
@@ -45,7 +44,6 @@ char *print_sixteen(char *format, va_list *var)
 	_strcpy(format, printNum);
 
 	format = format + _strlen(printNum);
-
 	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);
 

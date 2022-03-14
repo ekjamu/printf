@@ -5,6 +5,7 @@
 /**
   * print_float - function to print float %f
   * @format: %f
+  * @var: the list object to manipulate
   * Return: if float is NULL, return pointer
   */
 char *print_float(char *format, va_list *var)

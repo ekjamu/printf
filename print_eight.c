@@ -5,7 +5,8 @@
 
 /**
   * print_eight - function to print to base 8
-  * @format: base8
+  * @format: the string to manipulate
+  * @var: the list object to manipulate
   * Return: if argument is NULL, return pointer
   */
 char *print_eight(char *format, va_list *var)
@@ -23,9 +24,7 @@ char *print_eight(char *format, va_list *var)
 	if (formatEnd == NULL)
 		return (format);
 	if (numberTest < 0)
-	{
 		number = number * -1;
-	}
 	while (number > 7)
 	{
 		*(printNum + i) = *(convert + (number % 8));
@@ -45,7 +44,6 @@ char *print_eight(char *format, va_list *var)
 	_strcpy(format, printNum);
 
 	format = format + _strlen(printNum);
-
 	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);
 
