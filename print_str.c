@@ -31,5 +31,7 @@ char *print_string(char *format, va_list *var)
 	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);
 
+	free(formatEnd);
+
 	return (format);
 }
