@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -12,15 +13,19 @@ char *print_string(char *format, va_list *var)
 {
 	char *formatEnd, *argStr;
 
-	argStr = va_arg(var, char *);
+	argStr = va_arg(*var, char *);
 
 	/* perhaps we should exit here instead as printf wouldn't compile */
 	if (argStr == NULL || *argStr == '\0')
 		return (format);
 
-	formatEnd = format;
+	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
+	if (formatEnd == NULL)
+		return (format);
 
+	_strcpy(formatEnd, format);
 	_strcpy(format, argStr);
+
 	format = format + _strlen(argStr);
 
 	if (_strlen(formatEnd) > 2)
