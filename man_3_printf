@@ -7,20 +7,18 @@ int _printf(const char *format, ...);
 _printf \- Prints a string onto the screen, taking into account a number (0 - alot) of additional arguments
 .SH OPTIONS
 The following options need to be preceeded with a '%' sign to take effect.
-**c**   
-: print_char   
-**s**   
-: print_string   
-**%**    
-: print_percent    
-**d**    
-: print_int      
-**f**    
-: print_float    
-**o**     
-: print_eight     
-**x**       
-: print_sixteen     
+.PP
+.B c\fR : print_char   
+.PP
+.B s\fR : print_string   
+.PP
+.B %\fR : print_percent    
+.PP
+.B d\fR : print_int      
+.PP
+.B o\fR : print_eight     
+.PP
+.B x\fR : print_sixteen
 .SH RETURN VALUE
 If the function is successful it will return the length of the string it prints excluding the terminating null byte ('\0').
 If the function fails to find a matching % modifier function, it will exit with error 99.     
