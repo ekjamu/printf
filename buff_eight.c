@@ -30,4 +30,6 @@ int buff_eight(va_list *args)
 		c = c / 8;
 		buffSize ++;
 	}
+
+	return (buffSize);
 }

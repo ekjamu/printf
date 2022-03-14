@@ -13,7 +13,7 @@ char *print_eight(char *format, va_list *var)
 	char *formatEnd;
 	unsigned int number = 0;
 	int numberTest = 0;
-	char printNum[20], i = 0, k = 0;
+	char printNum[20], i = 0;
 	char *convert = "012345678";
 
 	number = va_arg(*var, unsigned int);
@@ -28,18 +28,18 @@ char *print_eight(char *format, va_list *var)
 	}
 	while (number > 7)
 	{
-		printNum[i] = convert[number % 8];
+		*(printNum + i) = *(convert + (number % 8));
 		i++;
 		number = number / 8;
 	}
-	printNum[i] = convert[number % 8];
+	*(printNum + i) = *(convert + (number % 8));
 	if (numberTest < 0)
 	{
 		i++;
-		printNum[i] = '-';
+		*(printNum + i) = '-';
 	}
 	i++;
-	printNum[i] = '\0';
+	*(printNum + i) = '\0';
 	rev_string(printNum);
 	_strcpy(formatEnd, format);
 	_strcpy(format, printNum);
