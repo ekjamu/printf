@@ -19,8 +19,8 @@ char *print_mod(char *format, va_list *var)
 	t_mod selector[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"%", print_percent},
 		{"d", print_int},
+		{"i", print_int},
 		{"f", print_float},
 		{"o", print_eight},
 		{"x", print_sixteen},
@@ -28,9 +28,16 @@ char *print_mod(char *format, va_list *var)
 		{"u", print_uns},
 		{NULL, NULL}
 	};
+
+	if (*(format + 1) == '%')
+	{
+		remove_char(format);
+		return (format);
+	}
+
 	while (selector[count].symbol != NULL)
 	{
-		if (*(selector[count].symbol) == *(format+ 1))
+		if (*(selector[count].symbol) == *(format + 1))
 		{
 			return (selector[count].type(format, var));
 		}
