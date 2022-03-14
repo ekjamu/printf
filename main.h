@@ -59,6 +59,7 @@ char *print_eight(char *format, va_list *var);
 char *print_sixteen(char *format, va_list *var);
 char *print_mod(char *format, va_list *var);
 char *print_uns(char *format, va_list *var);
+char *print_binary(char *format, va_list *var);
 int buff_size_calc(const char *format, va_list *args);
 int buff_string(va_list *args);
 int buff_char(va_list *args);

@@ -21,6 +21,7 @@ char *print_mod(char *format, va_list *var)
 		{"s", print_string},
 		{"d", print_int},
 		{"i", print_int},
+		{"b", print_binary},
 		{"f", print_float},
 		{"o", print_eight},
 		{"x", print_sixteen},
