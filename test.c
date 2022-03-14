@@ -9,8 +9,10 @@
  */
 int main(void)
 {
-    int len = 5000;
+    char *s = "hello";
     _printf("Hi guys,\n");
-    _printf("hi guys %d\n", len);
+    _printf("hi guys %s bob\n", s);
+    _printf("sup guys %o typop\n", 8);
+    _printf("oct test: %x\n", 1553);
    return (0);
 }

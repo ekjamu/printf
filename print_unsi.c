@@ -4,16 +4,17 @@
 #include <stdlib.h>
 
 /**
-  * print_sixteen - function to print of base 16
-  * @format: base16
+  * print_uns - will print unsigned ints.
+  * @format: char * to edit
+  * @var: the list element to handle
   * Return: if argument is NULL, return pointer
   */
-char *print_sixteen(char *format, va_list *var)
+char *print_uns(char *format, va_list *var)
 {
 	char *formatEnd;
 	unsigned int number = 0;
 	char printNum[20], i = 0, k = 0;
-	char *convert = "0123456789abcdef";
+	char *convert = "0123456789";
 	number = va_arg(*var, unsigned int);
 
 	/* perhaps we should exit here instead as printf wouldn't compile */
@@ -22,17 +23,16 @@ char *print_sixteen(char *format, va_list *var)
 		return (format);
 	if (number < 0)
 	{
-		number = number * -1;
-		printNum[i] = '-';
-		i++;
+		_puts("expected unsigned int, got a negative number");
+		exit(99);
 	}
-	while (number > 15)
+	while (number > 9)
 	{
-		printNum[i] = convert[number % 16];
+		printNum[i] = convert[number % 10];
 		i++;
-		number = number / 16;
+		number = number / 10;
 	}
-	printNum[i] = convert[number % 16];
+	printNum[i] = convert[number % 10];
 	i++;
 	printNum[i] = '\0';
 	rev_string(printNum);

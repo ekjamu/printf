@@ -24,6 +24,8 @@ char *print_mod(char *format, va_list *var)
 		{"f", print_float},
 		{"o", print_eight},
 		{"x", print_sixteen},
+		{"X", print_sixteen},
+		{"u", print_uns},
 		{NULL, NULL}
 	};
 	while (selector[count].symbol != NULL)

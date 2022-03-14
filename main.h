@@ -58,6 +58,7 @@ char *print_float(char *format, va_list *var);
 char *print_eight(char *format, va_list *var);
 char *print_sixteen(char *format, va_list *var);
 char *print_mod(char *format, va_list *var);
+char *print_uns(char *format, va_list *var);
 int buff_size_calc(const char *format, va_list *args);
 int buff_string(va_list *args);
 int buff_char(va_list *args);
@@ -65,5 +66,6 @@ int buff_int(va_list *args);
 int buff_float(va_list *args);
 int buff_eight(va_list *args);
 int buff_sixteen(va_list *args);
+void rev_string(char *s);
 
 #endif /* MAIN_H */
