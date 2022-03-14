@@ -13,7 +13,6 @@
 char *print_char(char *format, va_list *var)
 {
 	char *formatEnd;
-	int i = 0; /*placeholder of c */
 
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
