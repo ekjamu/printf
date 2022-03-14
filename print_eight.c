@@ -20,7 +20,12 @@ char *print_eight(char *format, va_list *var)
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
 		return (format);
-
+	if (number < 0)
+	{
+		number = number * -1;
+		argStr[k] = '-';
+		k++;
+	}
 	while (number > 7)
 	{
 		printNum[i] = number % 8;
