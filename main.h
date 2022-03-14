@@ -67,5 +67,6 @@ int buff_float(va_list *args);
 int buff_eight(va_list *args);
 int buff_sixteen(va_list *args);
 void rev_string(char *s);
+char *remove_char(char *format);
 
 #endif /* MAIN_H */
