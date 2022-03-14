@@ -14,5 +14,6 @@ int main(void)
     _printf("hi guys %s bob\n", s);
     _printf("sup guys %o typop\n", 8);
     _printf("oct test: %x\n", 1553);
+	_printf("int test %i\n", -1414);
    return (0);
 }
