@@ -13,8 +13,23 @@
 */
 int buff_sixteen(va_list *args)
 {
-        int c;
+	int c, buffSize = 1;
 
 	c = va_arg(*args, int);
-	return (4);
+	if (c < 0)
+	{
+		/**
+		 * change the negative to positive and
+		 * add 1 to buffSize to allow for - sign
+		 */
+		c = c * -1;
+		buffSize ++;
+	}
+	while (c > 15)
+	{
+		c = c / 16;
+		buffSize ++;
+	}
+
+	return (buffSize);
 }

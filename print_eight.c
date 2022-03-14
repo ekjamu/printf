@@ -10,10 +10,10 @@
   */
 char *print_eight(char *format, va_list *var)
 {
-	char *formatEnd, argStr[20];
+	char *formatEnd;
 	unsigned int number = 0;
-	int printNum[20], i = 0, k = 0;
-
+	char printNum[20], i = 0, k = 0;
+	char *convert = "012345678";
 	number = va_arg(*var, unsigned int);
 
 	/* perhaps we should exit here instead as printf wouldn't compile */
@@ -23,27 +23,23 @@ char *print_eight(char *format, va_list *var)
 	if (number < 0)
 	{
 		number = number * -1;
-		argStr[k] = '-';
-		k++;
+		printNum[i] = '-';
+		i++;
 	}
 	while (number > 7)
 	{
-		printNum[i] = number % 8;
+		printNum[i] = convert[number % 8];
 		i++;
 		number = number / 8;
 	}
-	printNum[i] = number;
-	while (i >= 0)
-	{
-		argStr[k] = (printNum[i] + '0');
-		i--;
-		k++;
-	}
-	argStr[k] = '\0';
+	printNum[i] = convert[number % 8];
+	i++;
+	printNum[i] = '\0';
+	rev_string(printNum);
 	_strcpy(formatEnd, format);
-	_strcpy(format, argStr);
+	_strcpy(format, printNum);
 
-	format = format + _strlen(argStr);
+	format = format + _strlen(printNum);
 
 	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);

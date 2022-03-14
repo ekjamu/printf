@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
+#include <stdlib.h>
 
 /**
   * print_sixteen - function to print of base 16
@@ -27,13 +28,14 @@ char *print_sixteen(char *format, va_list *var)
 	}
 	while (number > 15)
 	{
-		printNum[i] = conver[number % 16];
+		printNum[i] = convert[number % 16];
 		i++;
 		number = number / 16;
 	}
 	printNum[i] = convert[number % 16];
 	i++;
 	printNum[i] = '\0';
+	rev_string(printNum);
 	_strcpy(formatEnd, format);
 	_strcpy(format, printNum);
 
