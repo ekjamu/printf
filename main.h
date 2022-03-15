@@ -55,5 +55,6 @@ int buff_sixteen(va_list *args);
 int buff_ptr(va_list *args);
 void rev_string(char *s);
 char *remove_char(char *format);
+char *print_rot(char *format, va_list *var);
 
 #endif /* MAIN_H */

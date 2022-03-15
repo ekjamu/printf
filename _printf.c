@@ -27,6 +27,7 @@ char *print_mod(char *format, va_list *var)
 		{"u", print_uns},
 		{"p", print_ptr},
 		{"r", print_reverse},
+		{"R", print_rot},
 		{NULL, NULL}
 	};
 
