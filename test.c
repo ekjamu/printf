@@ -16,6 +16,6 @@ int main(void)
     _printf("oct test: %x\n", -1553);
     _printf("int test %i\n", -1414);
     _printf("char test %c\n", 'C');
-    _printf("revStr test %r\n", 'Hello');
+    _printf("revStr test %r\n", "Hello");
    return (0);
 }

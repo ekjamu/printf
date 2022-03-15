@@ -21,7 +21,8 @@ int buff_size_calc(const char *format, va_list *args)
 		{"d", buff_int}, {"i", buff_int},
 		{"o", buff_eight}, {"x", buff_sixteen},
 		{"X", buff_sixteen}, {"u", buff_int},
-		{"p", buff_ptr}, {NULL, NULL}
+		{"p", buff_ptr}, {"r", buff_string},
+		{NULL, NULL}
 	};
 
 	buffSize = _strlen(format);
