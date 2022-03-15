@@ -65,8 +65,6 @@ int _printf(const char *format, ...)
 	char *formatCpy;
 	int buffSize;
 
-	if (format == NULL)
-		return (-1);
 	va_start(print, format);
 	va_copy(search, print);
 	buffSize = buff_size_calc(format, &search);

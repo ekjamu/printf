@@ -15,27 +15,23 @@ char *print_int(char *format, va_list *var)
 	unsigned long int number = 0, i = 0;
 	char printNum[20];
 	char *convert = "0123456789";
-	int initial_num;
+	int initial_num, flag = 1;
 
 	initial_num = va_arg(*var, unsigned long int);
-
 	if (initial_num < 0)
-		number = initial_num * -1;
-	else
-		number = initial_num;
+		flag = -1;
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
 		return (NULL);
 	_strcpy(formatEnd, format);
-	while (number > 9)
+	for (number = initial_num * flag; number > 9; i++)
 	{
 		*(printNum + i) = *(convert + (number % 10));
-		i++;
 		number = number / 10;
 	}
 	*(printNum + i) = *(convert + (number));
 	i++;
-	if (initial_num < 0)
+	if (flag == -1)
 	{
 		*(printNum + i) = '-';
 		i++;
@@ -44,15 +40,13 @@ char *print_int(char *format, va_list *var)
 	rev_string(printNum);
 	_strcpy(formatEnd, format);
 	_strcpy(format, printNum);
-
 	format = format + _strlen(printNum);
-
 	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);
 	else
 	{
 		formatEnd = "\0";
-		_strcpy(format, formatEnd + 2);
+		_strcpy(format, formatEnd);
 	}
 	free(formatEnd);
 	return (format);
