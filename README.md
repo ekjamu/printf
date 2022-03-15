@@ -1,11 +1,16 @@
 # The PRINTF project
-## A Holberton Foundations Project
+## A Holberton Foundations Group Project
 
 **Language: C**
 
 This program writes a format string to standard output (a recreation of the stdio.h's printf()).
 
-We've taken an alternative approach to printing the format string, generating a space in memory to hold the entire modified string (see buff_size and associated subroutines), copying the format string into the newly allocaetd space and progressively manipulating it as each format specifier is encountered actioned (see print_mod inside _printf.c and subroutines). Once the format string copy is ready for printing, it is printed to standard output by one call to write and returns the length of the output string or -1 if an error is encountered at any part of the process.
+We've taken an alternative approach to printing the format string:
+(a) generate a space in memory to hold the entire modified string (see buff_size and associated subroutines)
+(b) copy the format string into the newly allocated space (formatCpy)
+(c) progressively manipulate formatCpy as each format specifier is encountered and actioned, acessing successive arguments via a va_list (see print_mod inside _printf.c and subroutines)
+(d) after all modifications are complete, write the complete string at formatCpy to standard output by one call to write
+(e) return the length of the output string or -1 if an error is encountered at any part of the process.
 
 The program has been tested in an Ubuntu 20.04 LTS environment and is compliant with gcc compilation using flags -Wall -Werror -Wextra -pedantic -std=gnu89.
 
