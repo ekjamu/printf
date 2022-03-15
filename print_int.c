@@ -41,7 +41,7 @@ char *print_int(char *format, va_list *var)
 	_strcpy(formatEnd, format);
 	_strcpy(format, printNum);
 	format = format + _strlen(printNum);
-	if (_strlen(formatEnd) > 2)
+/*	if (_strlen(formatEnd) > 2)*/
 		_strcpy(format, formatEnd + 2);
 	free(formatEnd);
 	return (format);
