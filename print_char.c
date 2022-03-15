@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include "main.h"
-
+#include <stdlib.h>
 /**
   * print_char - function to print char %c
   * @format: copy of format char pointed to %c
