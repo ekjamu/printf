@@ -61,6 +61,8 @@ int _printf(const char *format, ...)
 	char *formatCpy;
 	int buffSize;
 
+	if (format == NULL)
+		return (-1);
 	va_start(print, format);
 	va_copy(search, print);
 	buffSize = buff_size_calc(format, &search);
@@ -77,7 +79,7 @@ int _printf(const char *format, ...)
 		if (*(formatCpy + i) == '%')
 		{
 			print_mod(formatCpy + i, &print);
-			if (formatCpy == NULL)
+			if (print_mod(formatCpy + i, &print) == NULL)
 				return (-1);
 		}
 		i++;
