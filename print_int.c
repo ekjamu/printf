@@ -19,7 +19,7 @@ char *print_int(char *format, va_list *var)
 	orgInt = argInt;
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
-		return (format);
+		return (NULL);
 	_strcpy(formatEnd, format);
 
 	if (orgInt < 0)
