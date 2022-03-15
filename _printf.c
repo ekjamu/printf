@@ -44,10 +44,7 @@ char *print_mod(char *format, va_list *var)
 		}
 		count++;
 	}
-	_puts("Error: incorrect Modifier %");
-	_putchar(modFound);
-	_putchar('\n');
-	exit(99);
+	return (NULL);
 }
 
 /**
