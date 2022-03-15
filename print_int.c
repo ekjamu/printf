@@ -22,7 +22,7 @@ char *print_int(char *format, va_list *var)
 		flag = -1;
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
-		return (NULL);
+		return (-1);
 	_strcpy(formatEnd, format);
 	for (number = initial_num * flag; number > 9; i++)
 	{
