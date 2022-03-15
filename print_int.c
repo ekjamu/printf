@@ -43,11 +43,6 @@ char *print_int(char *format, va_list *var)
 	format = format + _strlen(printNum);
 	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);
-	else
-	{
-		formatEnd = "\0";
-		_strcpy(format, formatEnd);
-	}
 	free(formatEnd);
 	return (format);
 }
