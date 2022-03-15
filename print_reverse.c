@@ -7,11 +7,11 @@
  * print_reverse - function to print string in reverse %r
  * @format: copy of format reverse pointed to %r
  * @var: va_list pointer
- * Return" if string is NULL, return pointer
+ * Return: if string is NULL, return pointer
  */
 char *print_reverse(char *format, va_list *var)
 {
-	char *formatEnd, *argStr;
+	char *formatEnd, *argStr, *str;
 
 	argStr = va_arg(*var, char *);
 	printf("argStr is %s", argStr);
@@ -19,7 +19,11 @@ char *print_reverse(char *format, va_list *var)
 	if (argStr == NULL || *argStr == '\0')
 		return (NULL);
 
-	rev_string(argStr);
+	str = malloc(sizeof(*argStr) * (_strlen(argStr) + 1));
+	if (str == NULL)
+		return (NULL);
+	_strcpy(str, argStr);
+	rev_string(str);
 	printf("argStr is %s", argStr);
 
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
@@ -27,13 +31,13 @@ char *print_reverse(char *format, va_list *var)
 		return (NULL);
 
 	_strcpy(formatEnd, format);
-	_strcpy(format, argStr);
+	_strcpy(format, str);
 
-	format = format + _strlen(argStr);
+	format = format + _strlen(str);
 
 	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);
 
 	free(formatEnd);
-	return (argStr);
+	return (format);
 }
