@@ -4,31 +4,31 @@
 #include <stdlib.h>
 
 /**
-  * print_eight - function to print to base 8
-  * @format: the string to manipulate
-  * @var: the list object to manipulate
+  * print_u_sixteen - function to print of base 16
+  * @format: base16
+  * @var: the list object to manipulate.
   * Return: if argument is NULL, return pointer
   */
-char *print_eight(char *format, va_list *var)
+char *print_u_sixteen(char *format, va_list *var)
 {
 	char *formatEnd;
-	unsigned long int number = 0;
-	unsigned long int i = 0;
+	unsigned int number = 0;
+	unsigned int i = 0;
 	char printNum[20];
-	char *convert = "012345678";
+	char *convert = "0123456789abcdef";
 
 	number = va_arg(*var, unsigned int);
 	/* perhaps we should exit here instead as printf wouldn't compile */
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
 		return (NULL);
-	while (number > 7)
+	while (number > 15)
 	{
-		*(printNum + i) = *(convert + (number % 8));
+		*(printNum + i) = *(convert + (number % 16));
 		i++;
-		number = number / 8;
+		number = number / 16;
 	}
-	*(printNum + i) = *(convert + (number % 8));
+	*(printNum + i) = *(convert + (number % 16));
 	i++;
 	*(printNum + i) = '\0';
 	rev_string(printNum);

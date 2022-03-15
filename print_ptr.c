@@ -43,9 +43,8 @@ char *print_ptr(char *format, va_list *var)
 {
 	char *formatEnd;
 	unsigned long int number = 0;
-	unsigned long int numberTest = 0, i = 0;
+	unsigned long int numberTest = 0;
 	char *printNum;
-	char *convert = "0123456789abcdef";
 
 	number = va_arg(*var, unsigned long int);
 	numberTest = number;
@@ -54,7 +53,7 @@ char *print_ptr(char *format, va_list *var)
 		return (format);
 	if (numberTest == 0)
 	{
-		_strcpy(printNum, "(nil)");
+		printNum = "(nil)";
 		_strcpy(formatEnd, format);
 		_strcpy(format, printNum);
 		format = format + _strlen(printNum);

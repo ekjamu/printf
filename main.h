@@ -34,6 +34,7 @@ int _strlen(const char *s);
 void _puts(char *s);
 char *_strcpy(char *dest, const char *src);
 char *_strcat(char *dest, char *src);
+char *print_u_sixteen(char *format, va_list *var);
 char *print_char(char *format, va_list *var);
 char *print_int(char *format, va_list *var);
 char *print_string(char *format, va_list *var);
