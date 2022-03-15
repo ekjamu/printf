@@ -15,7 +15,6 @@
 char *print_mod(char *format, va_list *var)
 {
 	unsigned int count = 0;
-	char modFound = *(format + 1);
 	t_mod selector[] = {
 		{"c", print_char},
 		{"s", print_string},
