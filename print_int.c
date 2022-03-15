@@ -49,7 +49,11 @@ char *print_int(char *format, va_list *var)
 
 	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);
-
+	else
+	{
+		formatEnd = "\0";
+		_strcpy(format, formatEnd + 2);
+	}
 	free(formatEnd);
 	return (format);
 }

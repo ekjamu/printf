@@ -65,11 +65,8 @@ int _printf(const char *format, ...)
 	char *formatCpy;
 	int buffSize;
 
-	/**
-	 * the next few lines will allocate space
-	 * and copy the original string to a new
-	 * location on the heap for us to manipulate
-	 */
+	if (format == NULL)
+		return (-1);
 	va_start(print, format);
 	va_copy(search, print);
 	buffSize = buff_size_calc(format, &search);
