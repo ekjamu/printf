@@ -15,7 +15,7 @@ char *print_u_sixteen(char *format, va_list *var)
 	unsigned int number = 0;
 	unsigned int i = 0;
 	char printNum[20];
-	char *convert = "0123456789abcdef";
+	char *convert = "0123456789ABCDEF";
 
 	number = va_arg(*var, unsigned int);
 	/* perhaps we should exit here instead as printf wouldn't compile */
