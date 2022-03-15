@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
-
+#include <stdlib.h>
 /**
   * print_char - function to print char %c
   * @format: the string character to manipulate
@@ -10,5 +10,18 @@
   */
 char *print_char(char *format, va_list *var)
 {
+	char *formatEnd;
+
+	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
+	if (formatEnd == NULL)
+		return (format);
+	_strcpy(formatEnd, format);
+	*format = va_arg(*var, int);
+
+	format = format + 1;
+	if (_strlen(formatEnd) > 2)
+		_strcpy(format, formatEnd + 2);
+
+	free(formatEnd);
 	return (format);
 }

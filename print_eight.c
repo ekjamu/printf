@@ -13,7 +13,7 @@ char *print_eight(char *format, va_list *var)
 {
 	char *formatEnd;
 	unsigned int number = 0;
-	int numberTest = 0, i = 0;
+	unsigned int numberTest = 0, i = 0;
 	char printNum[20];
 	char *convert = "012345678";
 
