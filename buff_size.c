@@ -26,6 +26,7 @@ int buff_size_calc(const char *format, va_list *args)
 		{"x", buff_sixteen},
 		{"X", buff_sixteen},
 		{"u", buff_int},
+		{"p", buff_ptr},
 		{NULL, NULL}
 	};
 

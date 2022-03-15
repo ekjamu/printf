@@ -26,6 +26,7 @@ char *print_mod(char *format, va_list *var)
 		{"x", print_sixteen},
 		{"X", print_sixteen},
 		{"u", print_uns},
+		{"p", print_ptr},
 		{NULL, NULL}
 	};
 

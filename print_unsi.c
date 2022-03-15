@@ -12,8 +12,8 @@
 char *print_uns(char *format, va_list *var)
 {
 	char *formatEnd;
-	unsigned int number = 0;
-	char printNum[20], i = 0;
+	unsigned int number = 0, i = 0;
+	char printNum[20];
 	char *convert = "0123456789";
 	int numTest = 0;
 
