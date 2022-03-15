@@ -1,6 +1,5 @@
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -14,7 +13,6 @@ char *print_reverse(char *format, va_list *var)
 	char *formatEnd, *argStr, *str;
 
 	argStr = va_arg(*var, char *);
-	printf("argStr is %s", argStr);
 
 	if (argStr == NULL || *argStr == '\0')
 		return (NULL);
@@ -24,7 +22,6 @@ char *print_reverse(char *format, va_list *var)
 		return (NULL);
 	_strcpy(str, argStr);
 	rev_string(str);
-	printf("argStr is %s", argStr);
 
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
