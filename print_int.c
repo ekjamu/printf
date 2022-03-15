@@ -17,7 +17,7 @@ char *print_int(char *format, va_list *var)
 	char *convert = "0123456789";
 	int initial_num, flag = 1;
 
-	initial_num = va_arg(*var, unsigned long int);
+	initial_num = va_arg(*var, int);
 	if (initial_num < 0)
 		flag = -1;
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
@@ -41,7 +41,7 @@ char *print_int(char *format, va_list *var)
 	_strcpy(formatEnd, format);
 	_strcpy(format, printNum);
 	format = format + _strlen(printNum);
-/*	if (_strlen(formatEnd) > 2)*/
+	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);
 	free(formatEnd);
 	return (format);
