@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * remove_char - inserts \b into a string to remove an unwanted char
+ * remove_char - removes an unwanted char from a string
  * @format: the string to be altered
  * Return: pointer to the altered string or NULL
  */

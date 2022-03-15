@@ -12,42 +12,37 @@
 char *print_int(char *format, va_list *var)
 {
 	char *formatEnd;
-	char intToChar[32];
-	int argInt, orgInt, i = 0, a = 0;
+	unsigned long int number = 0, i = 0;
+	char printNum[20];
+	char *convert = "0123456789";
+	int initial_num, flag = 1;
 
-	argInt = va_arg(*var, int);
-	orgInt = argInt;
+	initial_num = va_arg(*var, int);
+	if (initial_num < 0)
+		flag = -1;
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
-		return (format);
+		return (NULL);
 	_strcpy(formatEnd, format);
-
-	if (orgInt < 0)
-		argInt = -argInt;
-
-	while (argInt > 9)
+	for (number = initial_num * flag; number > 9; i++)
 	{
-		intToChar[i] = argInt % 10 + 48;
-		argInt = argInt / 10;
+		*(printNum + i) = *(convert + (number % 10));
+		number = number / 10;
+	}
+	*(printNum + i) = *(convert + (number));
+	i++;
+	if (flag == -1)
+	{
+		*(printNum + i) = '-';
 		i++;
 	}
-	intToChar[i] = argInt + 48;
-	if (orgInt < 0)
-	{
-		i++;
-		intToChar[i] = '-';
-	}
-	while (i >= 0)
-	{
-		*(format + a) = intToChar[i];
-		a++;
-		i--;
-	}
-	format = format + a;
+	*(printNum + i) = '\0';
+	rev_string(printNum);
+	_strcpy(formatEnd, format);
+	_strcpy(format, printNum);
+	format = format + _strlen(printNum);
 	if (_strlen(formatEnd) > 2)
 		_strcpy(format, formatEnd + 2);
-	else
-		*format = '\0';
 	free(formatEnd);
 	return (format);
 }

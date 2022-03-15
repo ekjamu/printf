@@ -12,22 +12,16 @@
 char *print_uns(char *format, va_list *var)
 {
 	char *formatEnd;
-	unsigned int number = 0;
-	char printNum[20], i = 0;
+	unsigned long int number = 0, i = 0;
+	char printNum[20];
 	char *convert = "0123456789";
-	int numTest = 0;
 
-	number = va_arg(*var, unsigned int);
-	numTest = number;
+	number = va_arg(*var, unsigned long int);
 	/* perhaps we should exit here instead as printf wouldn't compile */
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
-		return (format);
-	if (numTest < 0)
-	{
-		_puts("expected unsigned int, got a negative number");
-		exit(99);
-	}
+		return (NULL);
+
 	while (number > 9)
 	{
 		*(printNum + i) = *(convert + (number % 10));

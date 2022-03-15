@@ -17,16 +17,11 @@ int buff_size_calc(const char *format, va_list *args)
 	int i = 0, count = 0, k = 0;
 	int buffSize = 0;
 	t_buff selector[] = {
-		{"c", buff_char},
-		{"s", buff_string},
-		{"d", buff_int},
-		{"i", buff_int},
-		{"f", buff_float},
-		{"o", buff_eight},
-		{"x", buff_sixteen},
-		{"X", buff_sixteen},
-		{"u", buff_int},
-		{NULL, NULL}
+		{"c", buff_char}, {"s", buff_string},
+		{"d", buff_int}, {"i", buff_int},
+		{"o", buff_eight}, {"x", buff_sixteen},
+		{"X", buff_sixteen}, {"u", buff_int},
+		{"p", buff_ptr}, {NULL, NULL}
 	};
 
 	buffSize = _strlen(format);

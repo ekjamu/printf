@@ -15,7 +15,6 @@
 char *print_mod(char *format, va_list *var)
 {
 	unsigned int count = 0;
-	char modFound = *(format + 1);
 	t_mod selector[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -24,8 +23,9 @@ char *print_mod(char *format, va_list *var)
 		{"b", print_binary},
 		{"o", print_eight},
 		{"x", print_sixteen},
-		{"X", print_sixteen},
+		{"X", print_u_sixteen},
 		{"u", print_uns},
+		{"p", print_ptr},
 		{NULL, NULL}
 	};
 
@@ -43,10 +43,7 @@ char *print_mod(char *format, va_list *var)
 		}
 		count++;
 	}
-	_puts("Error: incorrect Modifier %");
-	_putchar(modFound);
-	_putchar('\n');
-	exit(99);
+	return (NULL);
 }
 
 /**
@@ -64,11 +61,6 @@ int _printf(const char *format, ...)
 	char *formatCpy;
 	int buffSize;
 
-	/**
-	 * the next few lines will allocate space
-	 * and copy the original string to a new
-	 * location on the heap for us to manipulate
-	 */
 	va_start(print, format);
 	va_copy(search, print);
 	buffSize = buff_size_calc(format, &search);

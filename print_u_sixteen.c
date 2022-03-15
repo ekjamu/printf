@@ -4,18 +4,18 @@
 #include <stdlib.h>
 
 /**
-  * print_sixteen - function to print of base 16
+  * print_u_sixteen - function to print of base 16
   * @format: base16
   * @var: the list object to manipulate.
   * Return: if argument is NULL, return pointer
   */
-char *print_sixteen(char *format, va_list *var)
+char *print_u_sixteen(char *format, va_list *var)
 {
 	char *formatEnd;
 	unsigned int number = 0;
 	unsigned int i = 0;
 	char printNum[20];
-	char *convert = "0123456789abcdef";
+	char *convert = "0123456789ABCDEF";
 
 	number = va_arg(*var, unsigned int);
 	/* perhaps we should exit here instead as printf wouldn't compile */
