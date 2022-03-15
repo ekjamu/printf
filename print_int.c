@@ -26,7 +26,7 @@ char *print_int(char *format, va_list *var)
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
 		return (NULL);
-
+	_strcpy(formatEnd, format);
 	while (number > 9)
 	{
 		*(printNum + i) = *(convert + (number % 10));
