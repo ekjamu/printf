@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include "main.h"
@@ -16,7 +15,7 @@ char *print_char(char *format, va_list *var)
 
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
-		return (format);
+		return (NULL);
 	_strcpy(formatEnd, format);
 	*format = va_arg(*var, int);
 
