@@ -20,7 +20,7 @@ char *print_uns(char *format, va_list *var)
 	/* perhaps we should exit here instead as printf wouldn't compile */
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
-		return (format);
+		return (NULL);
 
 	while (number > 9)
 	{
