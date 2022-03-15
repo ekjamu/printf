@@ -33,7 +33,7 @@ char *print_int(char *format, va_list *var)
 		i++;
 		number = number / 10;
 	}
-	*(printNum + i) = *(convert + (number % 10));
+	*(printNum + i) = *(convert + (number));
 	i++;
 	if (initial_num < 0)
 	{
