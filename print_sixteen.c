@@ -12,9 +12,9 @@
 char *print_sixteen(char *format, va_list *var)
 {
 	char *formatEnd;
-	unsigned int number = 0;
-	int numberTest = 0;
-	char printNum[20], i = 0;
+	int number = 0;
+	int numberTest = 0, i = 0;
+	char printNum[20];
 	char *convert = "0123456789abcdef";
 
 	number = va_arg(*var, unsigned int);
@@ -22,7 +22,7 @@ char *print_sixteen(char *format, va_list *var)
 	/* perhaps we should exit here instead as printf wouldn't compile */
 	formatEnd = malloc(sizeof(*formatEnd) * (_strlen(format) + 1));
 	if (formatEnd == NULL)
-		return (format);
+		return (NULL);
 	if (numberTest < 0)
 		number = number * -1;
 	while (number > 15)

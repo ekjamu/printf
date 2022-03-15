@@ -24,8 +24,9 @@ char *print_mod(char *format, va_list *var)
 		{"b", print_binary},
 		{"o", print_eight},
 		{"x", print_sixteen},
-		{"X", print_sixteen},
+		{"X", print_u_sixteen},
 		{"u", print_uns},
+		{"p", print_ptr},
 		{NULL, NULL}
 	};
 
@@ -85,6 +86,8 @@ int _printf(const char *format, ...)
 		if (*(formatCpy + i) == '%')
 		{
 			print_mod(formatCpy + i, &print);
+			if (formatCpy == NULL)
+				return (-1);
 		}
 		i++;
 	}

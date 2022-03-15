@@ -13,7 +13,7 @@ char *print_int(char *format, va_list *var)
 {
 	char *formatEnd;
 	char intToChar[32];
-	int argInt, orgInt, i = 0, a = 0
+	int argInt, orgInt, i = 0, a = 0;
 
 	argInt = va_arg(*var, int);
 	orgInt = argInt;
